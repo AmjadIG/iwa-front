@@ -1,12 +1,13 @@
 import React from 'react';
-import '../Template.scss'
+import '../Template.scss';
 
 class Header extends React.Component{
     render() {
         return (
             <div className="Header">
-                <h1>CovidAlert</h1>
-                <a>Se Connecter</a>
+                <img src='../../../../assets/logos/logo2.png'></img>
+                <div>CovidAlert</div>
+                <a class="login-image">Se Connecter</a>
             </div>
         )
     }

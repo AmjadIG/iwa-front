@@ -10,6 +10,9 @@ class AlertsCenter extends React.Component {
                 <Alert></Alert>
                 <Alert></Alert>
                 <Alert></Alert>
+                <Alert></Alert>
+                <Alert></Alert>
+                <Alert></Alert>
             </div>
         );
     }
