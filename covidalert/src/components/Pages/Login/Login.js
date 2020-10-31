@@ -13,7 +13,7 @@ class Login extends React.Component{
                     </div>
                     <div className="login-label">Mot de passe</div>
                     <div>
-                        <input className="login-input" placeholder="Entrez votre mot de passe"></input>
+                        <input type="password" className="login-input" placeholder="Entrez votre mot de passe"></input>
                     </div>
                     <button className="login-button">Connexion</button>
                     <div className="sign-in-link">Vous n'avez pas de compte? Inscrivez-vous</div>

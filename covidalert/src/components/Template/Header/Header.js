@@ -1,13 +1,18 @@
 import React from 'react';
 import '../Template.scss';
+import logo from '../../../assets/logos/logo2.png';
+//import login from '../../../assets/icons/user-solid.png';
 
 class Header extends React.Component{
     render() {
         return (
             <div className="Header">
-                <img src='../../../../assets/logos/logo2.png'></img>
-                <div>CovidAlert</div>
-                <a class="login-image">Se Connecter</a>
+                <div className="home-link">
+                    <a><img className="logo" src={logo}></img>CovidAlert</a>
+                </div>
+                <div className="login-link">
+                    <a>Se connecter</a>
+                </div>
             </div>
         )
     }
