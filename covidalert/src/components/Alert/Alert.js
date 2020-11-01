@@ -2,6 +2,10 @@ import React from 'react';
 import '../Alert/Alert.scss'
 
 class Alert extends React.Component{
+    constructor(props){
+        super(props);
+
+    }
     
     render(){
         return (
