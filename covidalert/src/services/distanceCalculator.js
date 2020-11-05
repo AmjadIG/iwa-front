@@ -10,6 +10,6 @@ function calculZ(longA, latA,longB,latB){
     return Math.sqrt((calculX(longA, latA, longB, latB))^2+(calculY(latA,latB))^2);
 }
 
-function calculD(longA, latA,longB,latB){
+function calculDistance(longA, latA,longB,latB){
     return 1,852*60*calculZ(longA, latA,longB,latB);
 }

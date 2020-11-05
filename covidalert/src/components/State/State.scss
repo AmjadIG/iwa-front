@@ -1,0 +1,54 @@
+.state-component {
+  align-items: center;
+}
+
+.state {
+  max-width: fit-content;
+  max-height: fit-content;
+  border: solid;
+  border-radius: 3px;
+  border-color: grey;
+  border-width: 1px;
+  background-color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 20px;
+  padding: 20px;
+}
+
+.button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.covid {
+  background-color: rgb(180, 0, 0);
+}
+
+.covid:hover {
+  background-color: rgb(139, 0, 0);
+  cursor: pointer;
+}
+
+.sane {
+  background-color: rgb(49, 160, 197);
+}
+
+.sane:hover {
+  background-color: rgb(124, 124, 255);
+  cursor: pointer;
+}
+
+.contact {
+  background-color: rgb(197, 168, 0);
+}
+
+.contact:hover {
+  background-color: rgb(190, 124, 0);
+  cursor: pointer;
+}

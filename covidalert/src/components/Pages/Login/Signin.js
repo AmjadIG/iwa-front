@@ -1,12 +1,12 @@
 import React from 'react';
 import '../Login/Login.scss'
 
-class Login extends React.Component{
+class Signin extends React.Component{
     render(){
         return (
-            <div className="Login margin-login">
+            <div className="Login margin-signin">
                 <form className="login-form">
-                    <h2 className="login-title">Login</h2>
+                    <h2 className="login-title">Sign In</h2>
                     <div className="login-label">Mail</div>
                     <div>
                         <input className="login-input" placeholder="Entrez votre adresse mail"></input>
@@ -15,9 +15,13 @@ class Login extends React.Component{
                     <div>
                         <input type="password" className="login-input" placeholder="Entrez votre mot de passe"></input>
                     </div>
-                    <button className="login-button">Connexion</button>
+                    <div className="login-label">Entrez votre mot de passe une seconde fois</div>
                     <div>
-                        <a href="/signin" className="sign-in-link">Vous n'avez pas de compte? Inscrivez-vous</a>
+                        <input type="password" className="login-input" placeholder="Entrez votre mot de passe"></input>
+                    </div>
+                    <button className="login-button">S'inscrire</button>
+                    <div>
+                        <a href="/login" className="sign-in-link">Vous avez déjà un compte? Connectez-vous</a>
                     </div>
                 </form>
             </div>
@@ -25,4 +29,4 @@ class Login extends React.Component{
     }
 }
 
-export default Login;
+export default Signin;

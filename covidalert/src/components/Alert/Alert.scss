@@ -1,5 +1,6 @@
 .Notification {
-  width: 300px;
+  width: fit-content;
+  max-width: 200px;
   height: 100px;
   border: solid;
   border-radius: 3px;
@@ -10,6 +11,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   gap: 1em;
   margin: 20px;
+  padding: 20px;
 }
 
 .Notification:hover {

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Location/Location.scss';
 
 class Location extends React.Component {
     constructor(props) {
@@ -23,11 +24,13 @@ class Location extends React.Component {
 
     render() {
         return(
-            <div className="Location">
-                <h2>Localisation : </h2>
-                <p> long : {this.state.longitude}</p>
-                <p> lat : {this.state.latitude}</p>
-                <button onClick={this.changeLocation}> Localiser </button>
+            <div>
+                <h2>Localisation</h2>
+                <div className="location-block">
+                    <p>Longitude: {this.state.longitude}</p>
+                    <p>Latitude: {this.state.latitude}</p>
+                    <button className="button-location" onClick={this.changeLocation}> Localiser </button>
+                </div>
             </div>
         );
     }

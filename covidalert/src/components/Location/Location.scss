@@ -1,0 +1,33 @@
+.Location {
+  flex-direction: column;
+}
+
+.location-block {
+  max-width: fit-content;
+  max-height: fit-content;
+  border: solid;
+  border-radius: 3px;
+  border-color: grey;
+  border-width: 1px;
+  background-color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 20px;
+  padding: 20px;
+}
+
+.button-location {
+  background-color: #353b46;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.button-location:hover {
+  background-color: #282c34;
+  cursor: pointer;
+}
