@@ -22,7 +22,7 @@ class Login extends React.Component{
                 "password": this.state.password,
             };
             console.log(data);
-            await APIRequest.post("/authenticate",data,this.handleResponseAuthenticate,false);
+            //await APIRequest.post("/authenticate",data,this.handleResponseAuthenticate,false);
         }
     }
 
