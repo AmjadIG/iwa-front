@@ -1,6 +1,8 @@
 import React from 'react';
 import '../Location/Location.scss';
 
+import axios from 'axios';
+
 class Location extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,16 @@ class Location extends React.Component {
         navigator.geolocation.getCurrentPosition(position => {
             this.setState({latitude: position.coords.latitude, longitude :position.coords.longitude })
         });
+        const newLocation = {
+            id_user:localStorage.currentUser,
+            longitude:this.state.longitude,
+            latitude:this.state.latitude
+        }
+        axios.post('http://localhost:8080/api/v1/locations',{newLocation})
+            .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
     }
 
     render() {
@@ -31,7 +43,7 @@ class Location extends React.Component {
                     <div className="location-body">
                         <p>Longitude: {this.state.longitude}</p>
                         <p>Latitude: {this.state.latitude}</p>
-                        <button className="button-location" onClick={this.changeLocation}> Localiser </button>
+                        <button className="button-location" onClick={this.changeLocation}>Enregistrer Localisation</button>
                     </div>
                 </div>
             </div>
