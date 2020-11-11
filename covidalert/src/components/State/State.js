@@ -46,12 +46,13 @@ class State extends React.Component {
         let button1 = this.state.sane ? <button className="button covid" onClick={this.beSick}>J'ai le covid</button> : <button className="button sane" onClick={this.beSane}>Je n'ai plus le covid</button>
         let button2 = this.state.contact ? <button className="button sane" onClick={this.beSane}>Je ne suis plus cas contact</button> : <button className="button contact" onClick={this.beContact}>Je suis cas contact</button>
         return(
-            <div className="state-component">
+            <div className="state">
                 <h2>Votre état de Santé</h2>
-                <div className="state">
+                <hr/>
+                <div>
                     {this.state.health}
                 </div>
-                <div className="state">
+                <div>
                     <p>Changer mon état</p>
                     {button1}
                     {button2}

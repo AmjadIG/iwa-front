@@ -25,11 +25,14 @@ class Location extends React.Component {
     render() {
         return(
             <div>
-                <h2>Localisation</h2>
                 <div className="location-block">
-                    <p>Longitude: {this.state.longitude}</p>
-                    <p>Latitude: {this.state.latitude}</p>
-                    <button className="button-location" onClick={this.changeLocation}> Localiser </button>
+                    <h2>Localisation</h2>
+                    <hr/>
+                    <div className="location-body">
+                        <p>Longitude: {this.state.longitude}</p>
+                        <p>Latitude: {this.state.latitude}</p>
+                        <button className="button-location" onClick={this.changeLocation}> Localiser </button>
+                    </div>
                 </div>
             </div>
         );

@@ -2,8 +2,15 @@
   flex-direction: column;
 }
 
+h2 {
+  margin: 10px;
+  font-size: large !important;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
 .location-block {
-  max-width: fit-content;
+  width: 250px !important;
   max-height: fit-content;
   border: solid;
   border-radius: 3px;
@@ -13,7 +20,10 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 20px;
-  padding: 20px;
+}
+
+.location-body {
+  margin: 10px;
 }
 
 .button-location {

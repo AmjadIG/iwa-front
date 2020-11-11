@@ -50,5 +50,6 @@ export default function App() {
           </div>
         </Router>
       </KeycloakProvider>
+
   );
 }

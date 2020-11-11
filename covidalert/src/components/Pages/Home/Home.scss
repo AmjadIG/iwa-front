@@ -1,21 +1,18 @@
 .Home {
   vertical-align: top;
+  background-color: #cacaca;
 }
 
 .AlertsCenter {
   top: 15%;
   position: sticky;
-  width: 40%;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  vertical-align: top;
+  display: inline-block !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: top !important;
 }
 
 .Location {
-  top: 15%;
-  position: sticky;
-  width: 30%;
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -23,11 +20,39 @@
 }
 
 .State {
-  top: 15%;
-  position: sticky;
-  width: 30%;
   display: inline-block;
   align-items: center;
   justify-content: center;
   vertical-align: top;
+}
+
+.History {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.column {
+  float: left;
+  width: 31%;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.row {
+  margin: 0 -5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
