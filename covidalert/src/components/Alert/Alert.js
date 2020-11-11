@@ -4,15 +4,14 @@ import '../Alert/Alert.scss'
 class Alert extends React.Component{
     constructor(props){
         super(props);
-
     }
     
     render(){
         return (
             <div className="Notification">
-                <div className="Notification-head">Titre - Le {this.props.date_notification}<a href="/">x</a></div>
+                <div className="Notification-head">Titre - Le {this.props.date}<a href="/">x</a></div>
                 <hr/>
-                <div className="Notification-body">contenu de la notification {this.props.label_notification}</div>
+                <div className="Notification-body">contenu de la notification {this.props.label}</div>
             </div>
         );
     }

@@ -2,16 +2,28 @@ import React from 'react';
 import Alert from '../../Alert/Alert.js';
 import '../AlertsCenter/AlertsCenter.scss';
 
+import axios from 'axios';
+
 class AlertsCenter extends React.Component {
+    state = {
+        userNotifications: []
+    }
+
+    componentDidMount(){
+        axios.get('localhost:8080/notifications')
+            .then(res => {
+                const notifications = res.data;
+                const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
+                this.setState({ userNotifications });
+            })
+    }
+
     render() {
         return(
             <div className="AlertsCenter">
                 <h2>Centre de notifications</h2>
                 <div>
-                    <Alert></Alert>
-                    <Alert></Alert>
-                    <Alert></Alert>
-                    <Alert></Alert>
+                    { this.state.userNotifications.map(notification => <Alert date={notification.date_notification} label={notification.label_notification} />)}
                 </div>
             </div>
         );
