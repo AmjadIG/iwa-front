@@ -14,13 +14,19 @@ import {
   Redirect
 } from "react-router-dom";
 
-import { ReactKeycloakProvider } from '@react-keycloak/web'
-import keycloak from './keycloak'
+import { ReactKeycloakProvider } from '@react-keycloak/web';
+//import keycloak from './keycloak';
+import Keycloak from 'keycloak-js'
 
-import PrivateRoute from './PrivateRoute'
-
+import PrivateRoute from './PrivateRoute';
 
 export default function App() {
+
+  const keycloak = new Keycloak({
+    url: 'http://localhost:8081/auth/',
+    realm: 'iwa',
+    clientId: 'iwa-api'
+  })
 
   // an handler function that receives events launched by keycloak
   const handleOnEvent = (event, error) => {
@@ -29,7 +35,7 @@ export default function App() {
 
   return (
       <ReactKeycloakProvider
-          keycloak={keycloak}
+          authClient={keycloak}
           onEvent={(event, error) => handleOnEvent(event, error)}
       >
         <Router>
