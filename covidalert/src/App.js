@@ -35,7 +35,6 @@ export default function App() {
             <Redirect to="/"/>
           </Route>
         </Switch>
-        <Footer/>
       </div>
     </Router>
   );

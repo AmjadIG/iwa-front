@@ -1,7 +1,6 @@
 .Notification {
-  width: fit-content;
-  max-width: 200px;
-  height: 100px;
+  width: 200px;
+  height: fit-content;
   border: solid;
   border-radius: 3px;
   border-color: grey;
@@ -9,9 +8,7 @@
   background-color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  gap: 1em;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
 }
 
 .Notification:hover {
@@ -20,11 +17,11 @@
 }
 
 .Notification-head {
-  display: inline;
-  vertical-align: middle;
   font-size: small;
+  margin: 10px;
 }
 
 .Notification-body {
-  font-size: x-small;
+  font-size: small;
+  margin: 10px;
 }

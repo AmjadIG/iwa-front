@@ -7,11 +7,7 @@ class AlertsCenter extends React.Component {
         return(
             <div className="AlertsCenter">
                 <h2>Centre de notifications</h2>
-                <div className="alert-block">
-                    <Alert></Alert>
-                    <Alert></Alert>
-                    <Alert></Alert>
-                    <Alert></Alert>
+                <div>
                     <Alert></Alert>
                     <Alert></Alert>
                     <Alert></Alert>

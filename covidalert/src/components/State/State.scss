@@ -1,9 +1,6 @@
-.state-component {
-  align-items: center;
-}
-
 .state {
-  max-width: fit-content;
+  align-items: center;
+  width: 250px !important;
   max-height: fit-content;
   border: solid;
   border-radius: 3px;
@@ -13,7 +10,6 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 20px;
-  padding: 20px;
 }
 
 .button {
