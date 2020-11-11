@@ -16,27 +16,39 @@ import {
   Redirect
 } from "react-router-dom";
 
+import { KeycloakProvider } from '@react-keycloak/web'
+import keycloak from './keycloak'
+
+import PrivateRoute from './PrivateRoute'
+
+
 export default function App() {
+
+  // an handler function that receives events launched by keycloak
+  const handleOnEvent = (event, error) => {
+    console.log('onKeycloakEvent', event, error)
+  }
+
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-        <Switch>
-          <Route path="/signin">
-            <Signin/>
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route path="/home">
-            <Redirect to="/"/>
-          </Route>
-        </Switch>
-        <Footer/>
-      </div>
-    </Router>
+      <KeycloakProvider
+          keycloak={keycloak}
+          onEvent={(event, error) => handleOnEvent(event, error)}
+      >
+        <Router>
+          <div className="App">
+            <Header/>
+            <Switch>
+              <Route path="/signin">
+                <Signin/>
+              </Route>
+              <PrivateRoute path='/' component={Home} />
+              <Route path="/home">
+                <Redirect to="/"/>
+              </Route>
+            </Switch>
+            <Footer/>
+          </div>
+        </Router>
+      </KeycloakProvider>
   );
 }
