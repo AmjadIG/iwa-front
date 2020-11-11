@@ -66,4 +66,4 @@ class APIRequest {
     }
 
 }
-
+export default APIRequest;

@@ -4,9 +4,8 @@ const keycloakConfig = {
     realm: 'iwa',
     clientId: 'iwa-api'
 }
-const keycloak = new Keycloak(keycloakConfig)
-
-export default keycloak
+const keycloak = new Keycloak(keycloakConfig);
+export default keycloak;
 
 
 

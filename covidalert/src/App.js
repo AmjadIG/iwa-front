@@ -1,11 +1,9 @@
 import './App.css';
 
-import Login from './components/Pages/Login/Login';
 import Signin from './components/Pages/Login/Signin';
 import Home from './components/Pages/Home/Home'
 
 import Header from './components/Template/Header/Header.js'
-import Footer from './components/Template/Footer/Footer.js'
 
 import React from 'react';
 import {
@@ -52,7 +50,6 @@ export default function App() {
                 <Redirect to="/"/>
               </Route>
             </Switch>
-            <Footer/>
           </div>
         </Router>
       </ReactKeycloakProvider>
