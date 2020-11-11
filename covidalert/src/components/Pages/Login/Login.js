@@ -2,8 +2,22 @@ import React from 'react';
 import '../Login/Login.scss'
 
 class Login extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state={
+            mail:'',
+            password:'',
+            redirect: false
+        }
+    }
+
     render(){
-        return (
+
+    }
+
+    form(){
+        return(
             <div className="Login margin-login">
                 <form className="login-form">
                     <h2 className="login-title">Login</h2>
@@ -21,7 +35,7 @@ class Login extends React.Component{
                     </div>
                 </form>
             </div>
-        );
+        )
     }
 }
 
