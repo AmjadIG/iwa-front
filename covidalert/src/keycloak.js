@@ -4,8 +4,8 @@ const keycloakConfig = {
     realm: 'awi',
     clientId: 'awi-api'
 }
-const keycloak = new Keycloak(keycloakConfig)
-export default keycloak
+const keycloak = new Keycloak(keycloakConfig);
+export default keycloak;
 
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import APIRequest from '../../../services/APIRequest';
 import '../Login/Login.scss'
 
 class Login extends React.Component{
@@ -14,18 +15,6 @@ class Login extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-<<<<<<< HEAD
-    handleChange(event){
-        this.setState({
-            mail: event.target.mail,
-            password: event.target.password
-        });
-    }
-
-    handleSubmit(){
-        console.log(this.state.mail);
-        console.log(this.state.password);
-=======
     // submit form
     async formSubmit(event){
         if(this.state.mail === "" || this.state.password === ""){
@@ -36,7 +25,8 @@ class Login extends React.Component{
                 "password": this.state.password,
             };
             console.log(data);
-            await APIRequest.post("/authenticate",data,this.handleResponseAuthenticate,false);
+            let api = new APIRequest();
+            await api.post("/authenticate",data,this.handleResponseAuthenticate,false);
         }
     }
 
@@ -50,7 +40,6 @@ class Login extends React.Component{
     handleMailChange(event){
         this.setState({mail: event.target.value})
     }
->>>>>>> 6c8f22549440eca25275c4ad19428080e8a70d62
 
     handlePasswordChange(event){
         this.setState({password: event.target.value})
@@ -63,13 +52,6 @@ class Login extends React.Component{
                     <h2 className="login-title">Login</h2>
                     <div className="login-label">Mail</div>
                     <div>
-<<<<<<< HEAD
-                        <input className="login-input" placeholder="Entrez votre adresse mail" value={this.state.mail} onChange={this.handleChange}></input>
-                    </div>
-                    <div className="login-label">Mot de passe</div>
-                    <div>
-                        <input type="password" className="login-input" placeholder="Entrez votre mot de passe" value={this.state.password} onChange={this.handleChange}></input>
-=======
                         <input
                             className="login-input"
                             placeholder="Entrez votre adresse mail"
@@ -88,7 +70,6 @@ class Login extends React.Component{
                             value={this.state.password}
                         >
                         </input>
->>>>>>> 6c8f22549440eca25275c4ad19428080e8a70d62
                     </div>
                     <button className="login-button" onChange={this.handleSubmit}>Connexion</button>
                     <div>
