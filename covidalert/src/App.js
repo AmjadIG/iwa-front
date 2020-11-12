@@ -42,12 +42,12 @@ export default function App() {
           <div className="App">
             <Header/>
             <Switch>
-              <Route path="/signin">
-                <Signin/>
+              <PrivateRoute path='/home' component={Home} />
+              <Route path="/test">
+                <Redirect to="/test"/>
               </Route>
-              <PrivateRoute path='/' component={Home} />
-              <Route path="/home">
-                <Redirect to="/"/>
+              <Route path="/">
+                <Signin/>
               </Route>
             </Switch>
           </div>
