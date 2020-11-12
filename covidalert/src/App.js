@@ -40,7 +40,6 @@ export default function App() {
       >
         <Router>
           <div className="App">
-            <Header/>
             <Switch>
               <PrivateRoute path='/home' component={Home} />
               <Route path="/test">

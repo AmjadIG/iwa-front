@@ -8,7 +8,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         <Route
             {...rest}
             render={props => (
-                keycloak?.authenticated ? <Component {...props} /> : keycloak.login()
+                keycloak?.authenticated ? <Component {...props} /> : keycloak.init({onLoad:'login-required'})
             )}
         />
     )
