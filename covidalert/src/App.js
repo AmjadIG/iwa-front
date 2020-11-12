@@ -40,6 +40,7 @@ export default function App() {
       >
         <Router>
           <div className="App">
+            <Header/>
             <Switch>
               <Route path="/signin">
                 <Signin/>
