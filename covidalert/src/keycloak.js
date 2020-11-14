@@ -1,6 +1,6 @@
 import Keycloak from 'keycloak-js'
 const keycloakConfig = {
-    url: 'http://localhost:8081/auth/',
+    url: `http://${process.env.KEYCLOAK_HOST}/auth/`,
     realm: 'iwa',
     clientId: 'iwa-api',
     onLoad: 'login-required'

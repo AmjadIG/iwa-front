@@ -27,7 +27,7 @@ class Location extends React.Component {
             longitude:this.state.longitude,
             latitude:this.state.latitude
         }
-        axios.post('http://localhost:8080/api/v1/locations',{newLocation})
+        axios.post(`http://${process.env.API_HOST}/api/v1/locations`,{newLocation})
             .then(res => {
             console.log(res);
             console.log(res.data);
