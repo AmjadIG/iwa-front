@@ -10,7 +10,7 @@ class AlertsCenter extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`${process.env.API_HOST}/api/v1/notifications`)
+        axios.get(`http://${process.env.REACT_APP_API_HOST}/api/v1/notifications`)
             .then(res => {
                 const notifications = res.data;
                 const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);

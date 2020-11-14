@@ -24,7 +24,7 @@ import PrivateRoute from './PrivateRoute';
 export default function App() {
 
   const keycloak = new Keycloak({
-    url: `http://${process.env.KEYCLOAK_HOST}/auth`,
+    url: `http://${process.env.REACT_APP_KEYCLOAK_HOST}/auth`,
     realm: 'iwa',
     clientId: 'iwa-api'
   })
