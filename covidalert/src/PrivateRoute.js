@@ -4,14 +4,17 @@ import { Route } from 'react-router-dom'
 
 function PrivateRoute({ component: Component, ...rest }) {
     const { keycloak } = useKeycloak()
+    //var loginPage = keycloak.login()
+
     return (
         <Route
             {...rest}
             render={props => (
-                keycloak?.authenticated ? <Component {...props} /> : keycloak.init({onLoad:'login-required'})
+                //keycloak?.authenticated ? <Component {...props} /> : loginPage)
+                <Component {...props} />
             )}
         />
     )
 }
 
-export default PrivateRoute
+export default PrivateRoute;

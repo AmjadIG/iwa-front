@@ -4,6 +4,7 @@ import Signin from './components/Pages/Login/Signin';
 import Home from './components/Pages/Home/Home'
 
 import Header from './components/Template/Header/Header.js'
+import Footer from './components/Template/Footer/Footer.js'
 
 import React from 'react';
 import {
@@ -32,6 +33,7 @@ export default function App() {
           authClient={keycloak}
           onEvent={(event, error) => handleOnEvent(event, error)}
       >
+        <Header/>
         <Router>
           <div className="App">
             <Switch>

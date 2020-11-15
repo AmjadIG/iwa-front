@@ -1,12 +1,10 @@
 import Keycloak from 'keycloak-js'
 const keycloakConfig = {
-    url: 'http://localhost:8081/auth/',
-    realm: 'iwa',
-    clientId: 'iwa-api',
+    url: `http://${process.env.REACT_APP_KEYCLOAK_HOST}/auth/`,
+    realm: 'covidalert',
+    clientId: 'covidalert-web',
     onLoad: 'login-required'
 }
 const keycloak = new Keycloak(keycloakConfig);
 export default keycloak;
-
-
 
