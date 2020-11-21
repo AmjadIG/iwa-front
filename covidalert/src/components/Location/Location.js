@@ -2,6 +2,7 @@ import React from 'react';
 import '../Location/Location.scss';
 
 import axios from 'axios';
+import APIRequest from "../../services/APIRequest";
 
 class Location extends React.Component {
     constructor(props) {
@@ -27,11 +28,16 @@ class Location extends React.Component {
             longitude:this.state.longitude,
             latitude:this.state.latitude
         }
-        axios.post(`http://${process.env.REACT_APP_API_HOST}/api/v1/locations`,{newLocation})
-            .then(res => {
-            console.log(res);
-            console.log(res.data);
-        })
+
+        APIRequest.post('/api/v1/locations',newLocation, (status,data) =>{
+            console.log(data);
+        },true)
+
+        //axios.post(`http://${process.env.REACT_APP_API_HOST}/api/v1/locations`,{newLocation})
+        //    .then(res => {
+        //    console.log(res);
+        //console.log(res.data);
+        //})
     }
 
     render() {

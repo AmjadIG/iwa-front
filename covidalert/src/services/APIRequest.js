@@ -3,7 +3,7 @@ import axios from 'axios';
 class APIRequest {
     constructor() {
         let axiosInstance = axios.create({
-            baseURL: process.env.REACT_APP_API_URL
+            baseURL: process.env.REACT_APP_API_HOST
         });
         axiosInstance.interceptors.response.use(this.handleResponseSuccess, this.handleResponseError);
         axiosInstance.interceptors.request.use(request => this.requestHandler(request));
@@ -20,7 +20,7 @@ class APIRequest {
     // add Token if handler token is enabled
     async requestHandler(request){
         if (this.isHandlerEnabled(request)) {
-            const token  = await localStorage.getItem('token');
+            const token  = await localStorage.getItem('access_token');
             request.headers['Authorization'] = "Bearer " + token
         }
         return request
@@ -35,6 +35,7 @@ class APIRequest {
     // response error handler
     handleResponseError = (error) => {
         console.log(error)
+        console.log(error.response)
         return error
     }
 
@@ -66,4 +67,4 @@ class APIRequest {
     }
 
 }
-export default APIRequest;
+export default new APIRequest();

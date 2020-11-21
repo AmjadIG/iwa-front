@@ -3,6 +3,7 @@ import Alert from '../../Alert/Alert.js';
 import '../AlertsCenter/AlertsCenter.scss';
 
 import axios from 'axios';
+import APIRequest from "../../../services/APIRequest";
 
 class AlertsCenter extends React.Component {
     state = {
@@ -10,12 +11,11 @@ class AlertsCenter extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`http://${process.env.REACT_APP_API_HOST}/api/v1/notifications`)
-            .then(res => {
-                const notifications = res.data;
-                const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
-                this.setState({ userNotifications });
-            })
+        APIRequest.get("/api/v1/notifications",(status,data) =>{
+            const notifications = data;
+            const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
+            this.setState({ userNotifications });
+        },true);
     }
 
     render() {

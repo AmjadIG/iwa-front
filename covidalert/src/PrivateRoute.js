@@ -1,20 +1,21 @@
 import React from 'react'
-import { useKeycloak } from '@react-keycloak/web'
-import { Route } from 'react-router-dom'
+//import { useKeycloak } from '@react-keycloak/web'
+//import initKeycloak from "./services/initKeycloak";
+import { Route,Redirect } from 'react-router-dom'
 
-function PrivateRoute({ component: Component, ...rest }) {
-    const { keycloak } = useKeycloak()
-    //var loginPage = keycloak.login()
+export default function PrivateRoute({ component: Component, ...rest }) {
+    //initKeycloak.doLogin();
+    //const {keycloak, initialized} = useKeycloak()
+    let access = localStorage.getItem('access_token') !== null
 
     return (
         <Route
             {...rest}
             render={props => (
-                //keycloak?.authenticated ? <Component {...props} /> : loginPage)
-                <Component {...props} />
-            )}
+                access ? <Component {...props} /> : <Redirect to='/'/>
+                )
+            }
+
         />
     )
 }
-
-export default PrivateRoute;
