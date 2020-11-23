@@ -29,6 +29,7 @@ export default function App() {
 
         <Router>
           <div className="App">
+            <Header/>
             <Switch>
               <Route path="/login">
                 <Login/>
@@ -41,6 +42,7 @@ export default function App() {
                 <Redirect to="/login"/>
               </Route>
             </Switch>
+            <Footer/>
           </div>
         </Router>
   );

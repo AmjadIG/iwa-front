@@ -36,12 +36,9 @@
 }
 
 .login-link:hover {
-  border: unset;
-  border-radius: 20px;
-  background-color: white;
-  color: #282c34;
+  color: #f2f2f2;
   cursor: pointer;
-  transition: linear 1s;
+  text-decoration: underline;
 }
 
 @media (prefers-reduced-motion: no-preference) {

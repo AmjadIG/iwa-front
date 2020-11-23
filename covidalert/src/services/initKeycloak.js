@@ -10,6 +10,7 @@ import Keycloak from "keycloak-js";
 //    "confidential-port": 0
 //})
 
+/*
 const initKeycloak = (onAuthenticatedCallback) => {
     console.log("init keycloak")
     _kc.init({
@@ -34,4 +35,4 @@ export default {
     doLogin,
     doLogout,
     getToken,
-}
+}*/
