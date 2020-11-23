@@ -8,7 +8,11 @@ class Alert extends React.Component{
             <div className="Notification">
                 <div className="Notification-head">Titre - Le {this.props.date}<a href="/">x</a></div>
                 <hr/>
-                <div className="Notification-body">contenu de la notification {this.props.label}</div>
+                <div className="Notification-body">
+                    <div> {this.props.label} </div>
+                    <div> {this.props.state.longitude} </div>
+                    <div> {this.props.state.latitude} </div>
+                </div>
             </div>
         );
     }

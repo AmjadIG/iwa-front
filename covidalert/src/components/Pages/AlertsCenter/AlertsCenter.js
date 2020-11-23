@@ -6,16 +6,9 @@ import axios from 'axios';
 import APIRequest from "../../../services/APIRequest";
 
 class AlertsCenter extends React.Component {
-    state = {
-        userNotifications: []
-    }
 
-    componentDidMount(){
-        APIRequest.get("/api/v1/notifications",(status,data) =>{
-            const notifications = data;
-            const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
-            this.setState({ userNotifications });
-        },true);
+    constructor(props){
+        super(props)
     }
 
     render() {
@@ -23,7 +16,11 @@ class AlertsCenter extends React.Component {
             <div className="AlertsCenter">
                 <h2>Centre de notifications</h2>
                 <div>
-                    { this.state.userNotifications.map(notification => <Alert date={notification.date_notification} label={notification.label_notification} />)}
+                    { this.props.userNotifications.map(
+                        notification => <Alert
+                        date={notification.date_notification}
+                        label={notification.label_notification} />
+                    )}
                 </div>
             </div>
         );
