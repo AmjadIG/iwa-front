@@ -10,48 +10,57 @@ class Location extends React.Component {
         this.state = {
             latitude : null,
             longitude : null,
+            loading : true
         }
         this.changeLocation = this.changeLocation.bind(this)
     }
 
-    componentDidMount() {
-        this.changeLocation()
+    async componentDidMount() {
+        await this.changeLocation();
+        this.setState({ loading : false})
     }
 
     changeLocation(){
-        //TODO
         navigator.geolocation.getCurrentPosition(position => {
-            this.setState({latitude: position.coords.latitude, longitude :position.coords.longitude })
+            this.setState({
+                latitude: position.coords.latitude,
+                longitude :position.coords.longitude,
+            })
+
+            //send location received by browser
+            const newLocation = {
+                longitude:this.state.longitude,
+                latitude:this.state.latitude
+            }
+
+            let url = "/api/v1/users/addLocation/" + localStorage.getItem('userId');
+
+            APIRequest.post(url,newLocation, (status,data) =>{
+                console.log(status);
+            },true)
+
         });
-        const newLocation = {
-            id_user:localStorage.currentUser,
-            longitude:this.state.longitude,
-            latitude:this.state.latitude
-        }
 
-        APIRequest.post('/api/v1/locations',newLocation, (status,data) =>{
-            console.log(data);
-        },true)
+    }
 
-        //axios.post(`http://${process.env.REACT_APP_API_HOST}/api/v1/locations`,{newLocation})
-        //    .then(res => {
-        //    console.log(res);
-        //console.log(res.data);
-        //})
+    locationComponent(){
+        return(
+            <div className="location-block">
+                <h2>Localisation</h2>
+                <hr/>
+                <div className="location-body">
+                    <p>Longitude: {this.state.longitude}</p>
+                    <p>Latitude: {this.state.latitude}</p>
+                    <button className="button-location" onClick={this.changeLocation}>Enregistrer Localisation</button>
+                </div>
+            </div>
+        )
     }
 
     render() {
         return(
             <div>
-                <div className="location-block">
-                    <h2>Localisation</h2>
-                    <hr/>
-                    <div className="location-body">
-                        <p>Longitude: {this.state.longitude}</p>
-                        <p>Latitude: {this.state.latitude}</p>
-                        <button className="button-location" onClick={this.changeLocation}>Enregistrer Localisation</button>
-                    </div>
-                </div>
+                {this.state.loading ? <h2>Veuillez acceptez la localisation</h2> : this.locationComponent()}
             </div>
         );
     }

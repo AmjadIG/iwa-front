@@ -22,6 +22,7 @@ class Login extends React.Component{
 
     // submit form
     // authenticate is delegate to keycloak. We just verify through API if the user exists
+    // a token and id of the user is saved in localstorage if authentication works
     async formSubmit(event){
         event.preventDefault();
         if(this.state.mail === "" || this.state.password === ""){
@@ -39,7 +40,7 @@ class Login extends React.Component{
     }
 
     // handle response where we do a request to keycloak to get a token.
-    handleResponseAuthenticate(status,data){
+    handleResponseAuthenticate(status,userId){
         if(status === 200){
             // get token from keycloak api;
             let requestBody = qs.stringify({
@@ -63,6 +64,7 @@ class Login extends React.Component{
                     if(res.status === 200){
                         console.log(res.status);
                         localStorage.setItem('access_token',res.data.access_token);
+                        localStorage.setItem('userId',userId);
                         this.setState({redirect : true})
                         console.log("authentification sucessful")
                     }
