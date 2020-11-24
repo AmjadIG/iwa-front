@@ -17,23 +17,30 @@ class Home extends React.Component {
 
     componentDidMount(){
         //User States Request
+        const userId = localStorage.getItem("userId")
         APIRequest.get("/api/v1/user_states",(status, data) =>{
-            const states = data;
-            const userStates = states.filter(states => states.id_user == localStorage.currentUser.id_user);
-            this.setState({ userStates })
+            if(data !== null){
+                const states = data;
+                const userStates = states.filter(states => states.id_user == userId );
+                this.setState({ userStates })
+            }
         },true);
 
         //User Notifications Request
         APIRequest.get("/api/v1/notifications",(status,data) =>{
-            const notifications = data;
-            const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
-            this.setState({ userNotifications });
+            if(data !== null) {
+                const notifications = data;
+                const userNotifications = notifications.filter(notifications => notifications.id_user == userId);
+                this.setState({userNotifications});
+            }
         },true);
 
         APIRequest.get("/api/v1/user_localized",(status,data) =>{
-            const locations = data;
-            const userLocations = locations.filter(location => location.id_user == localStorage.currentUser.id_user);
-            this.setState({ userLocations });
+            if(data !== null) {
+                const locations = data;
+                const userLocations = locations.filter(location => location.id_user == userId);
+                this.setState({userLocations});
+            }
         },true);
     }
 

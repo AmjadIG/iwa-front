@@ -33,7 +33,7 @@ class Location extends React.Component {
                 latitude:this.state.latitude
             }
 
-            let url = "/api/v1/users/addLocation/" + localStorage.getItem('userId');
+            let url = "/api/v1/user_localized/add/" + localStorage.getItem('userId');
 
             APIRequest.post(url,newLocation, (status,data) =>{
                 console.log(status);
