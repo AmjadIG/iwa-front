@@ -28,7 +28,7 @@ class Alert extends React.Component{
         let body = this.Body()
         return (
             <div className="Notification">
-                <div className="Notification-head">Titre - Le {this.props.date}<a href="/">x</a></div>
+                <div className="Notification-head">Titre - Le {this.props.date}</div>
                 <hr/>
                 {body}
             </div>

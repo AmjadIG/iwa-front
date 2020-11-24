@@ -33,7 +33,7 @@ class Home extends React.Component {
             latitude : 40
         })
     }
-
+    /*
     componentDidMount(){
         //User States Request
         APIRequest.get("/api/v1/user_states",(status, data) =>{
@@ -54,7 +54,7 @@ class Home extends React.Component {
             const userLocations = locations.filter(location => location.id_user == localStorage.currentUser.id_user);
             this.setState({ userLocations });
         },true);
-    }
+    }*/
 
     render(){
         return(
