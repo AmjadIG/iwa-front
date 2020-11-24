@@ -15,6 +15,25 @@ class Home extends React.Component {
         userLocations: []
     }
 
+    constructor(props){
+        super(props)
+
+        this.state.userNotifications.push(
+            {
+            date_notification : Date.now,
+            label_notification : "covid"
+        })
+        this.state.userStates.push({
+            date_state : Date.now,
+            state : {label_state : "sane"}
+        })
+        this.state.userLocations.push({
+            date : Date.now,
+            longitude : 3,
+            latitude : 40
+        })
+    }
+
     componentDidMount(){
         //User States Request
         APIRequest.get("/api/v1/user_states",(status, data) =>{
