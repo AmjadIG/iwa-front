@@ -7,7 +7,6 @@ class History extends React.Component{
 
     constructor(props){
         super(props);
-        this.historyList = this.props.userStates.concat(this.props.userLocations);
     }
 
     render(){
@@ -16,12 +15,17 @@ class History extends React.Component{
             <div className="History">
                 <h2>Historique</h2>
                 <div className="alert-block">
-                    {this.historyList.map(historique => <Alert
-                        date={historique.date_notification}
-                        label={historique.label_notification}
-                        longitude={historique.state.longitude}
-                        latitude={historique.state.latitude}
+                    {this.props.userStates.map(historique => <Alert
+                        date={historique.date_state}
+                        label={historique.label_state}
                         />)}
+                    {
+                        this.props.userLocations.map(loc => <Alert
+                        date={loc.date}
+                        longitude={loc.longitude}
+                        latitude={loc.latitude}
+                        />)
+                    }
                 </div>
             </div>
         );
