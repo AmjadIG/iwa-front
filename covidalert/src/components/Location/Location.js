@@ -26,16 +26,10 @@ class Location extends React.Component {
                 latitude: position.coords.latitude,
                 longitude :position.coords.longitude,
             })
+            //add/{id_user}/longitude/{longitude}/latitude/{latitude}
+            let url = "/api/v1/user_localized/add/" + localStorage.getItem('userId') + "/longitude/"+ this.state.longitude +"/latitude/"+this.state.latitude;
 
-            //send location received by browser
-            const newLocation = {
-                longitude:this.state.longitude,
-                latitude:this.state.latitude
-            }
-
-            let url = "/api/v1/user_localized/add/" + localStorage.getItem('userId');
-
-            APIRequest.post(url,newLocation, (status,data) =>{
+            APIRequest.post(url,null, (status,data) =>{
                 console.log(status);
             },true)
 
