@@ -15,53 +15,18 @@ class Home extends React.Component {
         userLocations: []
     }
 
-    constructor(props){
-        super(props)
 
-        this.state.userNotifications.push(
-            {
-            date_notification : Date.now,
-            label_notification : "covid"
-        })
-        this.state.userStates.push({
-            date_state : Date.now,
-            state : {label_state : "sane"}
-        })
-        this.state.userLocations.push({
-            date : Date.now,
-            longitude : 3,
-            latitude : 40
-        })
-    }
-    /*
-    componentDidMount(){
+    async componentDidMount() {
         //User States Request
         const userId = localStorage.getItem("userId")
-        APIRequest.get("/api/v1/user_states",(status, data) =>{
-            if(data !== null){
+        await APIRequest.get("/api/v1/user_states/" + userId, (status, data) => {
+            if (data !== null && data !== undefined) {
                 const states = data;
-                const userStates = states.filter(states => states.id_user == userId );
-                this.setState({ userStates })
+                const userStates = states.filter(states => states.id_user == userId);
+                this.setState({userStates})
             }
-        },true);
-
-        //User Notifications Request
-        APIRequest.get("/api/v1/notifications",(status,data) =>{
-            if(data !== null) {
-                const notifications = data;
-                const userNotifications = notifications.filter(notifications => notifications.id_user == userId);
-                this.setState({userNotifications});
-            }
-        },true);
-
-        APIRequest.get("/api/v1/user_localized",(status,data) =>{
-            if(data !== null) {
-                const locations = data;
-                const userLocations = locations.filter(location => location.id_user == userId);
-                this.setState({userLocations});
-            }
-        },true);
-    }*/
+        }, true);
+    }
 
     render(){
         return(

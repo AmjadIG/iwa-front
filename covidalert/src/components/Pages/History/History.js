@@ -17,10 +17,12 @@ class History extends React.Component{
                 
                 <div className="flexbox vertical-center">
                 <div className="history-head">Historique des états</div>
-                    {this.props.userStates.map(historique => <Alert
-                        date={historique.date_state}
+                    {this.props.userStates.map(historique =>
+                        <Alert
+                        date={historique.date}
                         label={historique.label_state}
-                        />)}
+                        />
+                        )}
                 </div>
                 
                 <div>

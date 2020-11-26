@@ -98,7 +98,7 @@ class State extends React.Component {
                 <h2>Votre état de Santé</h2>
                 <p> user : </p>
                 <p> id : {this.state.user.id_user}</p>
-                <p> {this.state.user.toString()}</p>
+                <p> {this.state.label_state}</p>
                 <hr/>
                 <div>
                     {this.state.health}
