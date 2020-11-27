@@ -1,6 +1,7 @@
 .Home {
   vertical-align: top;
   background-color: #cacaca;
+  overflow: hidden;
 }
 
 .AlertsCenter {
@@ -33,10 +34,37 @@
   vertical-align: top;
 }
 
-.column {
+.column1 {
   float: left;
   width: 31%;
   padding: 0 10px;
+  margin: 1px;
+  position: fixed;
+  overflow: auto;
+}
+
+.column2 {
+  left: 31%;
+  float: left;
+  width: 31%;
+  padding: 0 10px;
+  margin: 1px;
+  position: fixed;
+  overflow: auto;
+}
+
+.column3 {
+  left: 62%;
+  float: left;
+  width: 31%;
+  height: 74%;
+  padding: 0 0px;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+.column3::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
