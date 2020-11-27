@@ -1,0 +1,31 @@
+.Notification {
+  min-width: 300px;
+  height: fit-content;
+  border: solid;
+  border-radius: 3px;
+  border-color: grey;
+  border-width: 1px;
+  background-color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px;
+}
+
+.Notification:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.Notification-head {
+  font-size: small;
+  margin: 10px;
+}
+
+.Notification-body {
+  font-size: small;
+  margin: 10px;
+}
+
+.details {
+  font-size: smaller;
+}

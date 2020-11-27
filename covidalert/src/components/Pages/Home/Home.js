@@ -27,7 +27,7 @@ class Home extends React.Component {
         await APIRequest.get("/api/v1/user_states/" + userId, (status, data) => {
             if (data !== null && data !== undefined) {
                 const states = data;
-                const userStates = states.filter(states => states.id_user == userId);
+                const userStates = states.filter(states => states.id_user === userId);
                 this.setState({userStates})
             }
         }, true);
@@ -36,7 +36,7 @@ class Home extends React.Component {
     render(){
         return(
             <div className="Home">
-                <div className="StateLocation column">
+                <div className="StateLocation column1">
                     <div className="State row">
                         <State/>
                     </div>
@@ -44,10 +44,10 @@ class Home extends React.Component {
                         <Location/>
                     </div>
                 </div>
-                <div className="column">
+                <div className="column2">
                     <div className="AlertsCenter row"><AlertsCenter userNotifications={this.state.userNotifications}/></div>
                 </div>
-                <div className="column">
+                <div className="column3">
                     <div className="History row"><History userStates={this.state.userStates} userLocations={this.state.userLocations}/></div>
                 </div>
             </div>

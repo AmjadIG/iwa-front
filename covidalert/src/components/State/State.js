@@ -80,7 +80,7 @@ class State extends React.Component {
     async sendState(state){
         console.log("post "+state)
         await APIRequest.post('api/v1/user_states/' + this.state.user.id_user +'/'+ state, null, (status, data) => {
-            if (status == 200) {
+            if (status === 200) {
                 console.log(status);
                 this.setState({sane: "sane"});
                 this.setState({health: "Vous êtes en bonne santé!"});
@@ -96,8 +96,7 @@ class State extends React.Component {
         return(
             <div className="state">
                 <h2>Votre état de Santé</h2>
-                <p> user : </p>
-                <p> id : {this.state.user.id_user}</p>
+                <p>email: {this.state.user.mail}</p>
                 <p> {this.state.label_state}</p>
                 <hr/>
                 <div>
