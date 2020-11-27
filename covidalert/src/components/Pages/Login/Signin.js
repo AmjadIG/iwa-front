@@ -31,13 +31,8 @@ class Signin extends React.Component{
         else if(this.state.password !== this.state.verifiedpassword){
             alert('Les deux mots de passe sont différents')
         }else{
-            let data = {
-                "mail" : this.state.mail,
-                "password": ""
-            }
-            await APIRequest.post("/api/v1/users",data,this.getAdminToken,false)
+            await APIRequest.post("/api/v1/users/mail/"+this.state.mail,null,this.getAdminToken,false)
         }
-
     }
 
     // acquire admin acces token
