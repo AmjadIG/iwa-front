@@ -11,5 +11,5 @@ function calculZ(longA, latA,longB,latB){
 }
 
 function calculDistance(longA, latA,longB,latB){
-    return 1,852*60*calculZ(longA, latA,longB,latB);
+    return 1.852*60*calculZ(longA, latA,longB,latB);
 }

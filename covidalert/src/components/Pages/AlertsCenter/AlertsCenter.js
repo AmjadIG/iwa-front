@@ -21,6 +21,10 @@ class AlertsCenter extends React.Component {
                 this.setState({notifications : data})
             }
         }, true);
+
+        let eventSource = new EventSource(process.env.REACT_APP_API_HOST + "/api/v1/kafka/emitter")
+
+        eventSource.onmessage = e => console.log(e.data);
     }
 
     render() {

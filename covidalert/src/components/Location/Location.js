@@ -10,24 +10,42 @@ class Location extends React.Component {
         this.state = {
             latitude : null,
             longitude : null,
+            userState : null,
             loading : true
         }
-        this.changeLocation = this.changeLocation.bind(this)
+        this.changeLocation = this.changeLocation.bind(this);
+        this.loadData = this.loadData.bind(this);
     }
 
     async componentDidMount() {
         await this.changeLocation();
+        await this.loadData();
         this.setState({ loading : false})
     }
 
-    changeLocation(){
+    async loadData() {
+        const userId = await localStorage.getItem("userId")
+        await APIRequest.get("api/v1/user_states/" + userId +"/currentState", (status, data) => {
+            if(status === 200) {
+                this.setState({ userState : data})
+            }
+        }, true)
+    }
+
+
+    async changeLocation(){
+
+        await this.loadData();
         navigator.geolocation.getCurrentPosition(position => {
             this.setState({
                 latitude: position.coords.latitude,
                 longitude :position.coords.longitude,
             })
+
+
             //add/{id_user}/longitude/{longitude}/latitude/{latitude}
-            let url = "/api/v1/user_localized/add/" + localStorage.getItem('userId') + "/longitude/"+ this.state.longitude +"/latitude/"+this.state.latitude;
+            let url = "/api/v1/kafka/publish/longitude/" + this.state.longitude + "/latitude/" + this.state.latitude + "/userId/" + localStorage.getItem('userId') + "/state/" + this.state.userState;
+            //let url = "/api/v1/user_localized/add/" + localStorage.getItem('userId') + "/longitude/"+ this.state.longitude +"/latitude/"+this.state.latitude;
 
             APIRequest.post(url,null, (status,data) =>{
                 console.log(status);
