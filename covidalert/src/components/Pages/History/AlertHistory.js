@@ -46,11 +46,11 @@ class AlertHistory extends React.Component{
 
     translateLabel(){
         if(this.props.label === "sane"){
-            return "Vous aviez croisé un ou plusieurs individus sains."
+            return "sain."
         }else if(this.props.label === "contact"){
-            return "Vous aviez croisé un cas contact."
+            return "cas contact."
         }else{
-            return "Attention, vous aviez sûrement croisé un contaminé Covid."
+            return "contaminé Covid."
         }
     }
 
