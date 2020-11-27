@@ -16,6 +16,10 @@ class AlertsCenter extends React.Component {
             const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
             this.setState({ userNotifications });
         },true);
+
+        let eventSource = new EventSource(process.env.REACT_APP_API_HOST + "/api/v1/kafka/emitter")
+
+        eventSource.onmessage = e => console.log(e.data);
     }
 
     render() {
@@ -24,6 +28,9 @@ class AlertsCenter extends React.Component {
                 <h2>Centre de notifications</h2>
                 <div>
                     { this.state.userNotifications.map(notification => <Alert date={notification.date_notification} label={notification.label_notification} />)}
+                </div>
+                <div>
+
                 </div>
             </div>
         );
