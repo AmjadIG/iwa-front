@@ -9,10 +9,15 @@ import APIRequest from '../../../services/APIRequest';
 
 class Home extends React.Component {
 
-    state = {
-        userNotifications: [],
-        userStates: [],
-        userLocations: []
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userNotifications: [],
+            userStates: [],
+            userLocations: []
+        }
+
     }
 
 

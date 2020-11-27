@@ -13,7 +13,6 @@ class AlertsCenter extends React.Component {
         }
     }
 
-
     async componentDidMount() {
         const userId = localStorage.getItem("userId")
         await APIRequest.get("/api/v1/notifications/user/" + userId, (status, data) => {
