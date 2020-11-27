@@ -2,20 +2,26 @@ import React from 'react';
 import Alert from '../../Alert/Alert.js';
 import '../AlertsCenter/AlertsCenter.scss';
 
-import axios from 'axios';
 import APIRequest from "../../../services/APIRequest";
 
 class AlertsCenter extends React.Component {
-    state = {
-        userNotifications: []
+
+    constructor(props){
+        super(props)
+        this.state = {
+            notifications : []
+        }
     }
 
-    componentDidMount(){
-        APIRequest.get("/api/v1/notifications",(status,data) =>{
-            const notifications = data;
-            const userNotifications = notifications.filter(notifications => notifications.id_user == localStorage.currentUser.id_user);
-            this.setState({ userNotifications });
-        },true);
+
+    async componentDidMount() {
+        const userId = localStorage.getItem("userId")
+        await APIRequest.get("/api/v1/notifications/user/" + userId, (status, data) => {
+            if (data !== null && data !== undefined) {
+                console.log("get Notif User :"+data.toString());
+                this.setState({notifications : data})
+            }
+        }, true);
 
         let eventSource = new EventSource(process.env.REACT_APP_API_HOST + "/api/v1/kafka/emitter")
 
@@ -23,17 +29,31 @@ class AlertsCenter extends React.Component {
     }
 
     render() {
-        return(
-            <div className="AlertsCenter">
-                <h2>Centre de notifications</h2>
-                <div>
-                    { this.state.userNotifications.map(notification => <Alert date={notification.date_notification} label={notification.label_notification} />)}
+        if (this.state.notifications.length === 0) {
+            return(
+                <div className="AlertsCenter">
+                    <h2>Centre de notifications</h2>
+                    <div>
+                        <p> Aucune notification</p>
+                    </div>
                 </div>
-                <div>
-
+            );
+        }else {
+            return (
+                <div className="AlertsCenter">
+                    <h2>Centre de notifications</h2>
+                    <div>
+                        { this.state.notifications.map(
+                            notification => <Alert
+                                date={notification.date_notification}
+                                location={notification.location}
+                                state={notification.state}
+                            />
+                        )}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 
